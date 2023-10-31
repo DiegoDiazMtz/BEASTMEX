@@ -16,4 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/cambiarContraseña', function () {
+    return view('cambiarContraseña');
+});
+Route::get('/administrador', function () {
+    return view('administrador');
+});
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -13,12 +13,12 @@
             <div class="col-md-6"> 
                 <div class="card"> 
                     <form onsubmit="event.preventDefault()" class="box"> 
-                        <h1 titulo-login>Inicio de Sesión</h1> 
-                        <p class="text-muted"> Ingrese su usuario y su contraseña</p> 
-                        <input type="text" name="" placeholder="Username"> 
-                        <input type="password" name="" placeholder="Password"> 
-                        <a class="forgot text-muted" href="#">¿Olvidaste la contraseña?</a> 
-                        <input type="submit" name="" value="Login" href="#"> 
+                        <h1 titulo-login>Cambiar contraseña</h1> 
+                        <p class="text-muted"> Ingrese su usuario y su nueva contraseña</p> 
+                        <input type="text" name="" placeholder="Nombre de usuario"> 
+                        <input type="password" name="" placeholder="Contraseña"> 
+                        <input type="password" name="" placeholder="Confirmar contraseña"> 
+                        <input type="submit" name="" value="Confirmar" href="#"> 
                     </form> 
                 </div> 
             </div> 
