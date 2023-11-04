@@ -14,6 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('welcome');
 });
+Route::get('/cambiarContraseña', function () {
+    return view('cambiarContraseña');
+});
+Route::get('/administrador', function () {
+    return view('administrador');
+});
+Route::get('/almacen', function () {
+    return view('almacen/almacen');
+});
+Route::get('/editarAlmacen', function () {
+    return view('almacen/editar');
+});
+Route::get('/agregarProducto', function () {
+    return view('almacen/agregar');
+});
+
+
 
