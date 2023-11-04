@@ -22,8 +22,15 @@ Route::get('/cambiarContraseña', function () {
 Route::get('/administrador', function () {
     return view('administrador');
 });
+Route::get('/almacen', function () {
+    return view('almacen/almacen');
+});
+Route::get('/editarAlmacen', function () {
+    return view('almacen/editar');
+});
+Route::get('/agregarProducto', function () {
+    return view('almacen/agregar');
+});
 
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
