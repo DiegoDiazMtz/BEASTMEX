@@ -39,3 +39,7 @@ Route::get('/compras', function () {
 Route::get('/ordenes', function () {
     return view('compras/ordenes');
 });
+
+Route::get('/consulta', function () {
+    return view('compras/consulta');
+});

@@ -9,7 +9,7 @@
 
 <h1 class="titulo">Compras</h1>
 
-<div class="consultar"> 
+<!-- <div class="consultar"> 
     <h3> Consultar productos disponibles</h3>
 </div>
 
@@ -19,13 +19,13 @@
             <input class="form-control me-2" type="search" placeholder="Productos disponibles" aria-label="Search">
             <button class="btn btn-outline-secondary" type="submit">Buscar</button>
         </form>
-    </div>
+    </div> -->
 
 </div>
 <div class="titulo-compras">
 <h3> Registro compras generadas</h3>
 </div>
-<div class="mt-3 card mb-5" style="width: 80rem; margin-left: auto; margin-right: auto; border: none !important">
+<div class="mt-3 card mb-5" style="width: 60rem; margin-left: auto; margin-right: auto; border: none !important">
 <form>
   <div class="mb-2">
     <div class="mb-5 mt-3">
