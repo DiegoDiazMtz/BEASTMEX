@@ -40,6 +40,9 @@ Route::get('/ventas', function () {
 Route::get('/registarVentas', function () {
     return view('ventas/registrar');
 });
+Route::get('/editarVentas', function () {
+    return view('ventas/editar');
+});
 
 
 
