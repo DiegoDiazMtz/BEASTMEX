@@ -22,6 +22,7 @@
             <li><a class="dropdown-item" href="#"> Consulta productos</a></li>
             <li><a class="dropdown-item" href="#">Alta/baja Proveedores</a></li>
             <li><a class="dropdown-item" href="/ordenes"> Generar Orden de Compra</a></li>
+            <li><a class="dropdown-item" href="#">Orden de Compras</a></li>
             <li><a class="dropdown-item" href="/compras">Registro Compras</a></li>
             <li><hr class="dropdown-divider"></li>
           </ul>

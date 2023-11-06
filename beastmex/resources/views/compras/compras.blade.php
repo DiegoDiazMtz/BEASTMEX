@@ -42,7 +42,7 @@
     <input type="text" class="form-control mb-3" value="" name="">
   </div>
   <div class="mb-5 mt-3">
-    <label for="exampleInputEmail1" class="form-label mb-3 "style="margin-left: 20px; margin-right: 20px">ISBN</label>
+    <label for="exampleInputEmail1" class="form-label mb-3 "style="margin-left: 20px; margin-right: 20px">Número de Serie</label>
     <input type="text" class="form-control mb-3" value="" name="">
   </div>
   <button type="submit" class="btn btn-secondary me-5">Submit</button>

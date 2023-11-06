@@ -9,6 +9,7 @@
 
 <div class="mt-3 card mb-5" style="width: 80rem; margin-left: auto; margin-right: auto; border: none !important">
 <form>
+    <h3>Registrar Orden de Compra</h3>
   <div class="mb-2">
     <div class="mb-5 mt-3">
     <label for="exampleInputEmail1" class="form-label mb-3 "style="margin-left: 30px; margin-right: 30px">Nombre Empresa</label>

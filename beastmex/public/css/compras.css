@@ -2,6 +2,7 @@
     color: red;
     text-align: center;
     margin-top: 30px;
+    margin-bottom: 50px;
     font-size: 70px;
     font-weight: bold;
 }
@@ -19,7 +20,7 @@
 .buscar-producto{
     display: flex;
     justify-content: space-between;
-    margin: 20px;
+    margin: 60px;
 }
 
 .form-group{
@@ -28,7 +29,7 @@
 }
 
 .consultar {
-    margin:10px;
+    margin:30px;
     
 }
 .titulo-compras{
