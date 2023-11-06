@@ -31,6 +31,9 @@ Route::get('/editarAlmacen', function () {
 Route::get('/agregarProducto', function () {
     return view('almacen/agregar');
 });
+Route::get('/usuarios', function () {
+    return view('usuarios/usuarios');
+});
 
 
 

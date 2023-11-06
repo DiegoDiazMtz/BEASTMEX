@@ -21,7 +21,7 @@
             <a class="nav-link" href="#">Ventas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/usuarios">Usuarios</a>
+            <a class="nav-link" href="#">Usuarios</a>
           </li>
         </ul>
         {{-- <form class="d-flex" role="search">
