@@ -16,7 +16,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/cambiarContraseña', function () {
+    return view('cambiarContraseña');
+});
+Route::get('/administrador', function () {
+    return view('administrador');
+});
+Route::get('/almacen', function () {
+    return view('almacen/almacen');
+});
+Route::get('/editarAlmacen', function () {
+    return view('almacen/editar');
+});
+Route::get('/agregarProducto', function () {
+    return view('almacen/agregar');
+});
+Route::get('/usuarios', function () {
+    return view('usuarios/usuarios');
+});
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
