@@ -19,5 +19,6 @@
             <button class="btn btn-outline-danger" type="submit">Filtrar</button>
         </form>
     </div>
+    
 
 @endsection

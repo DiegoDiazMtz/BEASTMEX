@@ -45,4 +45,14 @@ Route::get('/editarVentas', function () {
 });
 
 
+Route::get('/compras', function () {
+    return view('compras/compras');
+});
 
+Route::get('/ordenes', function () {
+    return view('compras/ordenes');
+});
+
+Route::get('/consulta', function () {
+    return view('compras/consulta');
+});
