@@ -1,12 +1,12 @@
 @extends('/layouts/plantilla')
 
 @section('estilos')
-<link rel="stylesheet" href="{{ asset('css/almacen.css') }}">
+<link rel="stylesheet" href="{{ asset('css/ventas.css') }}">
 @endsection
 
 @section('contenido')
 
-    <h1 class="titulo">Almacen</h1>
+    <h1 class="titulo">Ventas</h1>
 
     <div class="buscar-imprimir">
         <div class="col-sm-8 me-3">
@@ -16,7 +16,7 @@
             </form>
         </div>
         <div class="col-sm-4 d-grid gap-2 me-5">
-            <a href="#" class="btn btn-primary"><i class="bi bi-printer-fill"></i> Imprimir lista de productos almacenados</a>
+            <a href="/registarVentas" class="btn btn-primary">Generar Ticket</a>
         </div>
     </div>
     
@@ -29,13 +29,21 @@
             <div class="card-body">
                 <p class="card-text">
                     Descripcion del producto
+                        <p>
+                            Fecha
+                        </p>
+                        <p>
+                            Nombre del Producto
+                        </p>
                 </p>
-                <a href="/editarAlmacen" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Editar</a>
-                <a href="#" class="btn btn-primary"><i class="bi bi-trash"></i> Eliminar</a>
+                <a href="/editarVentas" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Editar</a>
+                <a href="#" class="btn btn-warning"><i class="bi bi-trash"></i> Eliminar</a>
+                <a href="#" class="btn btn-success"><i class="bi bi-printer-fill"></i></i> imprimir</a>
             </div>
         </div>
         @endfor
     </div>
+
 
 
 @endsection

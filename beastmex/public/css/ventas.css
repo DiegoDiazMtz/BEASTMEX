@@ -1,0 +1,36 @@
+/* *{
+    font-family: "fonts/Linefont/Linefont_Condensed-Bold.ttf";
+}
+ */
+ .titulo{
+    color: red;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* 100px de ancho */
+    grid-auto-rows: 300px; /* 50px de alto */
+    gap: 20px; /* Espacio entre tarjetas */
+    margin: 20px;
+    text-align: center;
+    padding: none;
+}
+
+.tarjetas p{
+    text-align: left !important;
+}
+
+.buscar-imprimir{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.form-group{
+    margin: 20px;
+    padding: 10px;
+}

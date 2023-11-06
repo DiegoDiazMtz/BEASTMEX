@@ -18,7 +18,7 @@
             <a class="nav-link" href="#">Compras</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Ventas</a>
+            <a class="nav-link" href="/ventas">Ventas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/usuarios">Usuarios</a>
