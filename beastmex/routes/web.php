@@ -35,3 +35,7 @@ Route::get('/usuarios', function () {
 Route::get('/compras', function () {
     return view('compras/compras');
 });
+
+Route::get('/ordenes', function () {
+    return view('compras/ordenes');
+});

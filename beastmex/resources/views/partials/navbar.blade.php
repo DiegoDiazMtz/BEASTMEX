@@ -14,9 +14,18 @@
           <li class="nav-item">
             <a class="nav-link" href="/almacen">Almacen</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/compras">Compras</a>
-          </li>
+          <li class="compras">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Compras
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"> Consulta productos</a></li>
+            <li><a class="dropdown-item" href="#">Alta/baja Proveedores</a></li>
+            <li><a class="dropdown-item" href="/ordenes"> Generar Orden de Compra</a></li>
+            <li><a class="dropdown-item" href="/compras">Registro Compras</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+        </li>
           <li class="nav-item">
             <a class="nav-link" href="/ventas">Ventas</a>
           </li>
