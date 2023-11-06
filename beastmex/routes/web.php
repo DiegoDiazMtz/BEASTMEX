@@ -34,6 +34,12 @@ Route::get('/agregarProducto', function () {
 Route::get('/usuarios', function () {
     return view('usuarios/usuarios');
 });
+Route::get('/ventas', function () {
+    return view('ventas/ventas');
+});
+Route::get('/registarVentas', function () {
+    return view('ventas/registrar');
+});
 
 
 
