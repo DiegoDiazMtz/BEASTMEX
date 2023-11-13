@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\administradorController;
+use App\Http\Controllers\usuariosController;
+use App\Http\Controllers\almacenController;
+use App\Http\Controllers\ventasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,37 +17,24 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+/* metodoLogin */
+Route::get('/', [loginController::class,'metodoLogin']);
+Route::get('/cambiarContraseña', [loginController::class,'metodoCamContra']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/cambiarContraseña', function () {
-    return view('cambiarContraseña');
-});
-Route::get('/administrador', function () {
-    return view('administrador');
-});
-Route::get('/almacen', function () {
-    return view('almacen/almacen');
-});
-Route::get('/editarAlmacen', function () {
-    return view('almacen/editar');
-});
-Route::get('/agregarProducto', function () {
-    return view('almacen/agregar');
-});
-Route::get('/usuarios', function () {
-    return view('usuarios/usuarios');
-});
-Route::get('/ventas', function () {
-    return view('ventas/ventas');
-});
-Route::get('/registarVentas', function () {
-    return view('ventas/registrar');
-});
-Route::get('/editarVentas', function () {
-    return view('ventas/editar');
-});
+/* administrador */
+Route::get('/administrador',  [administradorController::class,'metodoAdministrador']);
 
+/* metodoAlmacen */
+Route::get('/almacen', [almacenController::class,'metodoAlmacen']);
+Route::get('/editarAlmacen', [almacenController::class,'metodoEditAlmacen']);
+Route::get('/agregarProducto', [almacenController::class,'metodoAgregarAlmacen']);
 
+/* metodoUsuarios */
+Route::get('/usuarios', [usuariosController::class,'metodoUsuarios']);
+/*Route::get('/usuarios', [usuariosController::class,'metodoAgregarUsuarios']);  
+Route::get('/usuarios', [usuariosController::class,'metodoEditUsuarios']);*/
 
+/* metodoVentas */
+Route::get('/ventas', [ventasController::class,'metodoVentas']);
+Route::get('/registarVentas', [ventasController::class,'metodoAgregarVentas']);
+Route::get('/editarVentas', [ventasController::class,'metodoEditVentas']);
