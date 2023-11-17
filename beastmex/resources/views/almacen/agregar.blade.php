@@ -9,7 +9,7 @@
     <form action="#">
         <h1 class="titulo">Agregar producto</h1>
 
-        <div class="form-group card text-">
+        <div class="form-group card">
             <label for="nombre">Nombre del producto</label>
             <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto">
 
