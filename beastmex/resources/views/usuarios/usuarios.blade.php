@@ -9,16 +9,20 @@
     <h1 class="titulo">Usuarios</h1>
 
     <div class="buscar-imprimir">
-            <div class="col-sm-11 ms-5">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    <a href="/editarAlmacen" class="btn btn-primary ms-5"><i class="bi bi-person-plus-fill"></i></i></a>
-                </form>
+        <div class="col-sm-10">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+        </div>
+  
+        <div class="col-sm-2 ms-2">
+            <div class="">
+                <a href="/editarAlmacen" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i></i> Agregar usuario</a>
             </div>
         </div>
     </div>
-    
+
     <div class="tarjetas">
         @for ($i = 0; $i < 10; $i++)
         <div class="card">  

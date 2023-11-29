@@ -5,3 +5,35 @@
     font-size: 70px;
     font-weight: bold;
 }
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* 100px de ancho */
+    grid-auto-rows: 300px; /* 50px de alto */
+    gap: 20px; /* Espacio entre tarjetas */
+    margin: 20px;
+    text-align: center;
+    padding: none;
+}
+
+.form-group{
+    margin: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 30px;
+    border-radius: 40px !important;
+}
+
+.form-group input{
+    border-radius: 40px !important;
+}
+
+.buscar-imprimir{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.consultar{
+    margin-left: 20px;
+}

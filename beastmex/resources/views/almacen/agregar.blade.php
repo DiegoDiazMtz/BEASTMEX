@@ -6,38 +6,36 @@
 
 @section('contenido')
 
-    <form action="#">
+    <form method="POST" action="{{ route('almacen.store')}}" enctype="multipart/form-data">
+        @csrf
         <h1 class="titulo">Agregar producto</h1>
 
         <div class="form-group card">
-            <label for="nombre">Nombre del producto</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto">
+            <label >Nombre del producto</label>
+            <input type="text" class="form-control" name="nombreProd" value="{{old('nombreProd')}}">
+            <strong style="color: red">{{ $errors->has('numeroSerie') ? $errors->first('numeroSerie') : '' }}</strong>
 
-            <label for="nombre">Numero de serie</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto">
+            <label >Numero de serie</label>
+            <input type="text" class="form-control" name="numeroSerie" value="{{old('numeroSerie')}}">
+            <strong style="color: red">{{ $errors->has('marca') ? $errors->first('marca') : '' }}</strong>
             
-            <label for="nombre">Marca</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto">
+            <label >Marca</label>
+            <input type="text" class="form-control" name="marca" value="{{old('marca')}}">
+            <strong style="color: red">{{ $errors->has('cantidad') ? $errors->first('cantidad') : '' }}</strong>
             
-            <label for="nombre">Cantidad</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto">
+            <label >Cantidad</label>
+            <input type="text" class="form-control" name="cantidad" value="{{old('cantidad')}}">
+            <strong style="color: red">{{ $errors->has('costoCompra') ? $errors->first('costoCompra') : '' }}</strong>
             
-            <label for="nombre">Costo compra</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto">
+            <label >Costo compra</label>
+            <input type="text" class="form-control" name="costoCompra" value="{{old('costoCompra')}}">
+            <strong style="color: red">{{ $errors->has('precioVenta') ? $errors->first('precioVenta') : '' }}</strong>
             
-            <label for="nombre">Precio de venta</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto">
-            
-            <label for="nombre">Cantidad</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto">
-            
-            <label for="nombre">Fecha ingreso</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto">
-            
-            <label for="nombre">Foto</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto">
+            <label >Foto</label>
+            <input type="file" class="form-control" name="foto" value="{{old('foto')}}">
+            <strong style="color: red">{{ $errors->has('foto') ? $errors->first('foto') : '' }}</strong>
 
-            <input type="button" class="boton btn btn-primary" value="Enviar">
+            <input type="submit" class="boton btn btn-primary" value="Enviar">
         </div>
 
     </form>

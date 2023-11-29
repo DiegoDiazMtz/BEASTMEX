@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class valFormEliminarUsuarios extends FormRequest
+class validadorAlmacen extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class valFormEliminarUsuarios extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombreProd' => 'required|string|max:255',
+            'numeroSerie' => 'required|string|max:255',
+            'marca' => 'required|string|max:255',
+            'cantidad' => 'required|integer',
+            'costoCompra' => 'required|numeric',
+            'foto' => 'required|file'
         ];
     }
 }

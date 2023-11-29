@@ -6,15 +6,59 @@ use Illuminate\Http\Request;
 
 class ventasController extends Controller
 {
-    public function metodoVentas(){
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
         return view('ventas/ventas');
     }
 
-    public function metodoEditVentas(){
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('ventas/agregar');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit()
+    {
         return view('ventas/editar');
     }
 
-    public function metodoAgregarVentas(){
-        return view('ventas/agregar');
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }
