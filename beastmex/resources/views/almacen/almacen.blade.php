@@ -31,7 +31,7 @@
     {{ session()->forget('fallo') }}
     @endif
 
-    <div class="buscar-imprimir">
+    <div class="buscar-imprimir ">
         <div class="col-sm-8 me-3">
             <form method="POST" action="{{ route('almacen.filtro') }}" class="d-flex" role="search">
                 @csrf
@@ -47,13 +47,16 @@
         </div>
     </div>
     
-    <div class="tarjetas">
+    <div class="tarjetas mt-5">
         @foreach ($consultaProductos as $producto)
     <div class="card" style="width: 18rem;">
-        <img src="{{$producto->foto}}" class="card-img-top" alt="imagen-del-producto">
+        <div class="card-img-top align-content-center" style="height: 250px; overflow: hidden;">
+            <img src="{{ $producto->foto }}" alt="imagen-del-producto" style="object-fit: cover; max-height: 100%;">
+        </div>
+        
         <div class="card-body">
-            <h5 class="card-title">{{$producto->nombre_producto}}</h5>
-            <div class="row">
+            <h5 class="card-title bold"><strong>{{$producto->nombre_producto}}</strong></h5>
+            <div class="row mb-4">
                 <div class="col-sm-12 marca">
                     <strong>Marca: </strong>{{$producto->marca}}
                 </div>

@@ -88,6 +88,25 @@ class almacenController extends Controller
      */
     public function update(validadorAlmacen $request, $id)
     {
+       // Obtener el nombre anterior del registro
+        $registroAnterior = DB::table('productos')->where('id', $id)->first();
+        $nombreAnterior = $registroAnterior->nombre_producto;
+
+        $foto = null;
+
+        if ($request->hasFile('foto')) {
+            // Eliminar la imagen anterior si existe
+            if (!empty($nombreAnterior) && File::exists(public_path($nombreAnterior))) {
+                File::delete(public_path($nombreAnterior));
+            }
+
+            $file = $request->file('foto');
+            $destinationPath = 'img/productos';
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('foto')->move($destinationPath, $filename);
+            $foto = "$destinationPath/$filename";
+        }
+
         // Realiza la actualización en la base de datos
         DB::table('productos')->where('id', $id)->update([
             'nombre_producto' => $request->input('nombreProd'),
@@ -97,7 +116,7 @@ class almacenController extends Controller
             'costo_compra' => $request->input('costoCompra'),
             'precio_venta' => $request->input('costoCompra') * 1.55,
             'fecha_ingreso' => $request->input('fechaIngreso'),
-            'foto' => $request->input('foto'),
+            'foto' => $foto,
             'updated_at' => Carbon::now(),
         ]);
 
@@ -125,12 +144,19 @@ class almacenController extends Controller
         return redirect('/almacen')->with('confirmacion', 'Producto eliminado correctamente');
     }
 
+
+    
+
     public function imprimirListaProductos()
     {
         $consultaProductos = DB::table('productos')->get()->where('estatus', '=', 1);
         $pdf = PDF::loadView('pdf.lista_productos', compact('consultaProductos'));
         return $pdf->download('lista_productos.pdf');
     }
+
+
+
+
 
     public function filtro(Request $request)
     {
