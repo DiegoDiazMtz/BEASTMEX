@@ -6,7 +6,7 @@
 
 @section('contenido')
 
-    <form action="{{ route('almacen.update', $producto->id) }}" method="POST">
+    <form action="{{ route('almacen.update', $producto->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <h1 class="titulo">Editar producto</h1>
@@ -39,10 +39,30 @@
             <strong style="color: red">{{ $errors->has('fechaIngreso') ? $errors->first('fechaIngreso') : '' }}</strong>
 
             <label for="foto">Nueva foto</label>
-            {{-- <input type="file" class="form-control" name="foto" value="{{ $producto->foto }}"> --}}
+            <input type="file" class="form-control" name="foto" value="{{ $producto->foto }}">
             <strong style="color: red">{{ $errors->has('foto') ? $errors->first('foto') : '' }}</strong>
 
-            <input type="submit" class="boton btn btn-primary" value="Actualizar">
+            <input type="button" class="boton btn btn-primary" value="Actualizar" data-bs-toggle="modal" data-bs-target="#confirmarActualizarModal">
+        </div>
+
+        {{-- ------------------------------------------------- Modal ----------------------------------------------------- --}}
+        <div class="modal fade" id="confirmarActualizarModal" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmarEliminarModalLabel">Confirmar Eliminación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas actualizar este producto?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-warning">Actualizar</button>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 

@@ -7,6 +7,10 @@ use DB;//manejo de base de datos
 use Carbon\Carbon;//manejo de horas y fechas
 use PDF;
 use App\HTTP\Requests\validadorAlmacen;
+use App\HTTP\Requests\almacenUpdate;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
+
 
 
 class almacenController extends Controller
@@ -86,21 +90,22 @@ class almacenController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(validadorAlmacen $request, $id)
+    public function update(almacenUpdate $request, $id)
     {
        // Obtener el nombre anterior del registro
         $registroAnterior = DB::table('productos')->where('id', $id)->first();
-        $nombreAnterior = $registroAnterior->nombre_producto;
+        $nombreAnterior = $registroAnterior->foto;
 
-        $foto = null;
+        $foto = $nombreAnterior; // Mantener el valor actual por defecto
 
         if ($request->hasFile('foto')) {
-            // Eliminar la imagen anterior si existe
-            if (!empty($nombreAnterior) && File::exists(public_path($nombreAnterior))) {
-                File::delete(public_path($nombreAnterior));
+            
+            if (File::exists($foto)) {
+                // Borra la imagen anterior
+                File::delete($foto);
             }
-
-            $file = $request->file('foto');
+            
+            $file=$request->file('foto');
             $destinationPath = 'img/productos';
             $filename = time() . '_' . $file->getClientOriginalName();
             $uploadSuccess = $request->file('foto')->move($destinationPath, $filename);
@@ -117,7 +122,7 @@ class almacenController extends Controller
             'precio_venta' => $request->input('costoCompra') * 1.55,
             'fecha_ingreso' => $request->input('fechaIngreso'),
             'foto' => $foto,
-            'updated_at' => Carbon::now(),
+            'updated_at' => now(),
         ]);
 
         return redirect("/almacen")->with('confirmacion', 'Producto actualizado correctamente');
