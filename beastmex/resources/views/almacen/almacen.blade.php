@@ -49,69 +49,69 @@
     
     <div class="tarjetas mt-5">
         @foreach ($consultaProductos as $producto)
-    <div class="card" style="width: 18rem;">
-        <div class="card-img-top align-content-center" style="height: 250px; overflow: hidden;">
-            <img src="{{ $producto->foto }}" alt="imagen-del-producto" style="object-fit: cover; max-height: 100%;">
-        </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-img-top align-content-center" style="height: 250px; overflow: hidden;">
+                    <img src="{{ $producto->foto }}" alt="imagen-del-producto" style="object-fit: cover; max-height: 100%;">
+                </div>
+                
+                <div class="card-body">
+                    <h5 class="card-title bold"><strong>{{$producto->nombre_producto}}</strong></h5>
+                    <div class="row mb-4">
+                        <div class="col-sm-12 marca">
+                            <strong>Marca: </strong>{{$producto->marca}}
+                        </div>
+                        <div class="col-sm-6 marca card-text">
+                            <strong>Precio: </strong>{{$producto->precio_venta}}
+                        </div>
+                        <div class="col-sm-6 marca card-text">
+                            <strong>Stock: </strong>{{$producto->cantidad}}
+                        </div>
+                        <div class="col-sm-12 marca card-text">
+                            <strong>Numero de serie: </strong>{{$producto->no_serie}}
+                        </div>
+                        <div class="col-sm-12 marca card-text">
+                            <strong>Fecha de registro: </strong>{{$producto->fecha_ingreso}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <form action="{{ route('almacen.edit', $producto->id) }}" method="GET">
+                                @csrf
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Editar</button>
+                            </form>
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#confirmarEliminarModal{{ $producto->id }}"><i class="bi bi-trash"></i> Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         
-        <div class="card-body">
-            <h5 class="card-title bold"><strong>{{$producto->nombre_producto}}</strong></h5>
-            <div class="row mb-4">
-                <div class="col-sm-12 marca">
-                    <strong>Marca: </strong>{{$producto->marca}}
-                </div>
-                <div class="col-sm-6 marca card-text">
-                    <strong>Precio: </strong>{{$producto->precio_venta}}
-                </div>
-                <div class="col-sm-6 marca card-text">
-                    <strong>Stock: </strong>{{$producto->cantidad}}
-                </div>
-                <div class="col-sm-12 marca card-text">
-                    <strong>Numero de serie: </strong>{{$producto->no_serie}}
-                </div>
-                <div class="col-sm-12 marca card-text">
-                    <strong>Fecha de registro: </strong>{{$producto->fecha_ingreso}}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <form action="{{ route('almacen.edit', $producto->id) }}" method="GET">
-                        @csrf
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Editar</button>
-                    </form>
-                </div>
-                <div class="col-sm-6">
-                    <button type="submit" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#confirmarEliminarModal{{ $producto->id }}"><i class="bi bi-trash"></i> Eliminar</button>
+            {{-- ------------------------------------------------- Modal ----------------------------------------------------- --}}
+            <div class="modal fade" id="confirmarEliminarModal{{$producto->id}}" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="confirmarEliminarModalLabel">Confirmar Eliminación</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Estás seguro de que deseas eliminar este producto?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <form id="eliminarForm" method="POST" action="{{ route('almacen.destroy', $producto->id) }}">
+                                @csrf
+                                @method('POST')
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
     
-    {{-- ------------------------------------------------- Modal ----------------------------------------------------- --}}
-    <div class="modal fade" id="confirmarEliminarModal{{$producto->id}}" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmarEliminarModalLabel">Confirmar Eliminación</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ¿Estás seguro de que deseas eliminar este producto?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <form id="eliminarForm" method="POST" action="{{ route('almacen.destroy', $producto->id) }}">
-                        @csrf
-                        @method('POST')
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-@endforeach
-
-    </div>
     <script>
         function imprimirListaProductos() {
             // Realizar una solicitud AJAX a la ruta de impresión

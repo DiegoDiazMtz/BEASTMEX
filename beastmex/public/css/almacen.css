@@ -14,11 +14,11 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); /* 100px de ancho */
     grid-auto-rows: 480px; /* 50px de alto */
-    gap: 20px; /* Espacio entre tarjetas */
-    margin: 20px;
+    gap: 50px; /* Espacio entre tarjetas */
+    margin: 5%;
     text-align: center;
     padding: none;
-    width: 100%;
+    width: 90%;
 }
 
 .buscar-imprimir{

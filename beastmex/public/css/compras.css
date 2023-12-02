@@ -1,26 +1,30 @@
+/* *{
+    font-family: "fonts/Linefont/Linefont_Condensed-Bold.ttf";
+}
+ */
 .titulo{
     color: red;
     text-align: center;
     margin-top: 30px;
-    margin-bottom: 50px;
     font-size: 70px;
     font-weight: bold;
 }
 
 .tarjetas {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* 100px de ancho */
-    grid-auto-rows: 300px; /* 50px de alto */
-    gap: 20px; /* Espacio entre tarjetas */
-    margin: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); /* 100px de ancho */
+    grid-auto-rows: 480px; /* 50px de alto */
+    gap: 50px; /* Espacio entre tarjetas */
+    margin: 5%;
     text-align: center;
     padding: none;
+    width: 90%;
 }
 
-.buscar-producto{
+.buscar-imprimir{
     display: flex;
     justify-content: space-between;
-    margin: 60px;
+    margin: 20px;
 }
 
 .form-group{
@@ -35,10 +39,27 @@
     border-radius: 40px !important;
 }
 
-.consultar {
-    margin:30px;
-    
+.boton{
+    margin-top: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
-.titulo-compras{
-    text-align: center;
+
+.boton-especial{
+    width: 45%;
+}
+
+.imagen{
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+}
+
+.marca{
+    font-size: 15px;
+    text-align: start;
+}
+
+.card{
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.4);
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;//manejo de base de datos
 
 class comprasController extends Controller
 {
@@ -11,7 +12,9 @@ class comprasController extends Controller
      */
     public function index()
     {
-        return view('compras/compras');
+        $consultaProductos = DB::table('productos')->get()->where('estatus', '=', 1);
+        
+        return view('compras/compras', compact('consultaProductos'));
     }
 
     /**

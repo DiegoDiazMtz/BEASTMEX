@@ -1,4 +1,8 @@
-.titulo{
+/* *{
+    font-family: "fonts/Linefont/Linefont_Condensed-Bold.ttf";
+}
+ */
+ .titulo{
     color: red;
     text-align: center;
     margin-top: 30px;
@@ -8,12 +12,19 @@
 
 .tarjetas {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* 100px de ancho */
-    grid-auto-rows: 300px; /* 50px de alto */
-    gap: 20px; /* Espacio entre tarjetas */
-    margin: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); /* 100px de ancho */
+    grid-auto-rows: 480px; /* 50px de alto */
+    gap: 50px; /* Espacio entre tarjetas */
+    margin: 5%;
     text-align: center;
     padding: none;
+    width: 90%;
+}
+
+.buscar-imprimir{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
 }
 
 .form-group{
@@ -28,12 +39,39 @@
     border-radius: 40px !important;
 }
 
-.buscar-imprimir{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
+.boton{
+    margin-top: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
-.consultar{
+.boton-especial{
+    width: 45%;
+}
+
+.imagen{
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+}
+
+.marca{
+    font-size: 15px;
+    text-align: start;
+}
+
+.card{
+    box-shadow: 0px 0px 10px 10px rgba(0, 128, 0, 0.4);
+}
+
+.subtitulo{
     margin-left: 20px;
+}
+
+.menosde2{
+    box-shadow: 0px 0px 10px 10px rgba(255, 69, 0, 0.4) !important;
+}
+
+.resaltado{
+    color: red;
 }
