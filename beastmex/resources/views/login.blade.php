@@ -25,12 +25,13 @@
                 <div class="card"> 
                     <form method="POST" class="box" action="{{ route('login.login') }}"> 
                         @csrf
+                        @method('POST')
                         <h1 titulo-login>Inicio de Sesión</h1> 
                         <p class="text-muted"> Ingrese su correo y su contraseña</p> 
-                        <input type="text" name="correo" placeholder="{{ $errors->has('correo') ? $errors->first('correo') : 'Correo' }}"> 
+                        <input type="text" name="correo" placeholder="{{ $errors->has('correo') ? $errors->first('correo') : 'Correo' }}" value="{{old('correo')}}"> 
                         <input type="password" name="contrasena" placeholder="{{ $errors->has('contrasena') ? $errors->first('contrasena') : 'Contraseña' }}"> 
-                        <a class="forgot text-muted" href="/cambiarContraseña">¿Olvidaste la contraseña?</a> 
-                        <input type="submit" value="Ingresar"> 
+                        <a class="forgot text-muted" href="{{route('login.edit')}}">¿Olvidaste la contraseña?</a> 
+                        <input type="submit" value="Iniciar sesion"> 
                     </form> 
                 </div> 
             </div> 

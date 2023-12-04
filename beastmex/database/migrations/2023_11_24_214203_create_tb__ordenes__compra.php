@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_proveedor')->constrained('proveedores');
             $table->date('fecha_orden');
+            $table->decimal('total', 10, 2);
             $table->boolean('enviado');
             $table->timestamps();
         });

@@ -166,12 +166,15 @@ class almacenController extends Controller
     public function filtro(Request $request)
     {
         $filtro = $request->input('Filtro');
+        if ($filtro == null) {
+            return redirect()->route('almacen.index')->with('fallo', 'No se encontró ningún producto con ese nombre o número de serie.');
+        }
 
         $consultaProductos = DB::table('productos')
         ->where('estatus', '=', 1)
         ->where(function ($query) use ($filtro) {
-            $query->where('nombre_producto', '=', $filtro)
-                ->orWhere('no_serie', '=', $filtro);
+            $query->where('nombre_producto', 'like', '%' . $filtro . '%')
+                ->orWhere('no_serie', 'like', '%' . $filtro . '%');
         })
         ->get();
 

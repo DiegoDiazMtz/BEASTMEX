@@ -13,23 +13,23 @@
         <div class="form-group card">
             <label >Nombre del producto</label>
             <input type="text" class="form-control" name="nombreProd" value="{{old('nombreProd')}}">
-            <strong style="color: red">{{ $errors->has('numeroSerie') ? $errors->first('numeroSerie') : '' }}</strong>
+            <strong style="color: red">{{ $errors->has('nombreProd') ? $errors->first('nombreProd') : '' }}</strong>
 
             <label >Numero de serie</label>
             <input type="text" class="form-control" name="numeroSerie" value="{{old('numeroSerie')}}">
-            <strong style="color: red">{{ $errors->has('marca') ? $errors->first('marca') : '' }}</strong>
+            <strong style="color: red">{{ $errors->has('numeroSerie') ? $errors->first('numeroSerie') : '' }}</strong>
             
             <label >Marca</label>
             <input type="text" class="form-control" name="marca" value="{{old('marca')}}">
-            <strong style="color: red">{{ $errors->has('cantidad') ? $errors->first('cantidad') : '' }}</strong>
+            <strong style="color: red">{{ $errors->has('marca') ? $errors->first('marca') : '' }}</strong>
             
             <label >Cantidad</label>
             <input type="text" class="form-control" name="cantidad" value="{{old('cantidad')}}">
-            <strong style="color: red">{{ $errors->has('costoCompra') ? $errors->first('costoCompra') : '' }}</strong>
+            <strong style="color: red">{{ $errors->has('cantidad') ? $errors->first('cantidad') : '' }}</strong>
             
             <label >Costo compra</label>
             <input type="text" class="form-control" name="costoCompra" value="{{old('costoCompra')}}">
-            <strong style="color: red">{{ $errors->has('precioVenta') ? $errors->first('precioVenta') : '' }}</strong>
+            <strong style="color: red">{{ $errors->has('costoCompra') ? $errors->first('costoCompra') : '' }}</strong>
             
             <label >Foto</label>
             <input type="file" class="form-control" name="foto" value="{{old('foto')}}">

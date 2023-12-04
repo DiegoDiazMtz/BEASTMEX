@@ -22,23 +22,56 @@ class loginController extends Controller
             'correo' => 'required|email',
             'contrasena' => 'required',
         ]);
-    
-        $correo = $request->input('correo');
-        $contrasena = $request->input('contrasena');
-    
-        // Realizar la consulta a la base de datos
+
         $usuario = DB::table('usuarios')
-            ->where('correo', $correo)
+            ->where('correo', $request->input('correo'))
+            ->where('contrasena', $request->input('contrasena'))
             ->first();
-    
-        // Verificar si el usuario existe y la contraseña es correcta
-        if ($usuario->contrasena === $contrasena) {
-            // Autenticación exitosa
-            // Puedes hacer más acciones aquí si es necesario
-            return redirect()->route('administrador.index');
+
+        if ($usuario) {
+            $this->storeUserSession($request, $usuario);
+
+            switch ($usuario->rol) {
+                case 'Gerente':
+                    return redirect()->route('administrador.index');
+                case 'Auxiliar':
+                    return redirect()->route('almacen.index');
+                case 'Coordinador Ventas':
+                    return redirect()->route('ventas.index');
+                case 'Coordinador Compras':
+                    return redirect()->route('compras.index');
+                case 'Usuario':
+                    return redirect()->route('usuarios.index');
+                default:
+                    return back()->with('fail', 'El usuario no tiene rol asignado.');
+            }
+            
         }
-    
-        // Autenticación fallida
-        return back()->with('fail', 'Correo o contraseña incorrectos.');
+
+        return back()->with('fail', 'Correo o contraseña incorrectos');
     }
+
+    private function storeUserSession(Request $request, $usuario)
+    {
+        $request->session()->put([
+            'rol' => $usuario->rol,
+            'correo' => $usuario->correo,
+            'nombre' => $usuario->nombre_completo,
+        ]);
+    }
+
+
+    public function edit()
+    {
+        return view('cambiarContraseña');
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->forget('rol');
+        $request->session()->forget('correo');
+        
+        return redirect()->route('login.index');
+    }
+
 }

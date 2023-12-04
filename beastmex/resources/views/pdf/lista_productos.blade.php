@@ -52,6 +52,7 @@
 <body>
 
     <header>
+        <img src="{{ public_path('img/logo/logo.jpg') }}" alt="Logo BeastMex">
         <h1>BeastMex - Lista de Productos</h1>
         <hr style="border-top: 2px solid white;">
     </header>
@@ -64,6 +65,7 @@
                 <th>Precio</th>
                 <th>Stock</th>
                 <th>Fecha de Registro</th>
+                <th>Foto</th>
             </tr>
         </thead>
         <tbody>
@@ -74,6 +76,7 @@
                     <td>${{ $producto->precio_venta }}</td>
                     <td>{{ $producto->cantidad }}</td>
                     <td>{{ $producto->fecha_ingreso }}</td>
+                    <td><img src="{{ public_path($producto->foto) }}" alt="Foto del producto" width="100"></td>
                 </tr>
             @endforeach
         </tbody>

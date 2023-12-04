@@ -35,6 +35,7 @@
         <div class="col-sm-8 me-3">
             <form method="POST" action="{{ route('almacen.filtro') }}" class="d-flex" role="search">
                 @csrf
+                @method('POST')
                 <input class="form-control me-2" name="Filtro" placeholder="Buscar" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
@@ -51,7 +52,7 @@
         @foreach ($consultaProductos as $producto)
             <div class="card" style="width: 18rem;">
                 <div class="card-img-top align-content-center" style="height: 250px; overflow: hidden;">
-                    <img src="{{ $producto->foto }}" alt="imagen-del-producto" style="object-fit: cover; max-height: 100%;">
+                    <img src="{{ asset($producto->foto) }}" alt="imagen-del-producto" style="object-fit: cover; max-height: 100%;">
                 </div>
                 
                 <div class="card-body">
@@ -111,6 +112,7 @@
             </div>
         @endforeach
     </div>
+    
     
     <script>
         function imprimirListaProductos() {

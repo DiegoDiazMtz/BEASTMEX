@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre_completo');
             $table->string('correo');
-            $table->enum ('rol', ['Gerente', 'Coordinador Compras', 'Coordinador Ventas', 'Auxiliar']);
+            $table->enum ('rol', ['Gerente', 'Coordinador_Compras', 'Coordinador_Ventas', 'Auxiliar']);
             $table->string('contrasena');
             $table->timestamps();
         });

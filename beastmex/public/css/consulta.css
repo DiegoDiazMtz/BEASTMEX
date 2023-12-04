@@ -72,6 +72,19 @@
     box-shadow: 0px 0px 10px 10px rgba(255, 69, 0, 0.4) !important;
 }
 
+.menosde100{
+    box-shadow: 0px 0px 10px 10px rgba(238, 255, 0, 0.4) !important;
+}
+
 .resaltado{
     color: red;
+}
+
+.resaltado2{
+    color: orange;
+}
+
+.flecha{
+    color: blue;
+    font-size: 3rem;
 }

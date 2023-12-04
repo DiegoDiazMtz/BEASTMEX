@@ -44,32 +44,43 @@
   .navbar-nav .nav-link {
     padding: 15px;
   }
+
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <i class="bi bi-person-vcard"></i>
-    </a>
+    
+    <div class="dropdown">
+      <a class="navbar-brand dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"> 
+        <i class="bi bi-person-vcard"></i>
+      </a>
+      <ul class="dropdown-menu" style="padding: 14px">
+        <li><p>{{session('correo')}}</p></li>
+        <li><p>{{session('nombre')}}</p></li>
+        <li><p>{{session('rol')}}</p></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="{{route('login.logout')}}">Cerrar sesion</a></li>
+      </ul>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('administrador.index')?'active':'' }}" href="{{ route('administrador.index') }}">Administrador</a>
+          <a class="nav-link {{ request()->routeIs('administrador*')?'active':'' }}" href="{{ route('administrador.index') }}">Administrador</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('almacen.index')?'active':'' }}" href="{{ route('almacen.index') }}">Almacen</a>
+          <a class="nav-link {{ request()->routeIs('almacen*')?'active':'' }}" href="{{ route('almacen.index') }}">Almacen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('compras.index')?'active':'' }}" href="{{ route('compras.index') }}">Compras</a>
+          <a class="nav-link {{ request()->routeIs('compras*')?'active':'' }}" href="{{ route('compras.index') }}">Compras</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('ventas.index')?'active':'' }}" href="{{ route('ventas.index') }}">Ventas</a>
+          <a class="nav-link {{ request()->routeIs('ventas*')?'active':'' }}" href="{{ route('ventas.index') }}">Ventas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ request()->routeIs('usuarios.index')?'active':'' }}" href="{{ route('usuarios.index') }}">Usuarios</a>
+          <a class="nav-link {{ request()->routeIs('usuarios*')?'active':'' }}" href="{{ route('usuarios.index') }}">Usuarios</a>
         </li>
       </ul>
     </div>

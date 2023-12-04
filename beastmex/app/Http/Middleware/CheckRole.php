@@ -3,25 +3,17 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class CheckRole
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, ...$roles)
     {
-        $user = $request->user();
-
-        // Verifica si el usuario tiene el rol adecuado
-        if (!$user || !$this->checkRole($user, $role)) {
-            abort(403, 'No tienes permisos para acceder a esta página.');
+        // Verificar si el usuario tiene al menos uno de los roles necesarios
+        if ($request->session()->has('rol') && count(array_intersect($roles, [$request->session()->get('rol')])) > 0) {
+            return $next($request);
         }
 
-        return $next($request);
+        // Redireccionar a una ruta de acceso no autorizado o a donde desees
+        return redirect()->route('login.index')->with('fail', 'Acceso no autorizado.');
     }
 }
